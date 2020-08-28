@@ -19,9 +19,11 @@ class Toy {
     // Comment out the following no-arg
     // constructor to see NoSuchMethodError
     Toy() {
+        System.out.println("toy construct");
     }
 
     Toy(int i) {
+        System.out.println("toy construct i");
     }
 }
 
@@ -35,17 +37,18 @@ class FancyToy extends Toy
 public class ToyTest {
     static void printInfo(Class cc) {
         System.out.println("Class name: " + cc.getName() +
-                " is interface? [" + cc.isInterface() + "]");
+                " is interface ? [" + cc.isInterface() + "]");
         System.out.println(
                 "Simple name: " + cc.getSimpleName());
         System.out.println(
                 "Canonical name : " + cc.getCanonicalName());
+        System.out.println("---------------------------");
     }
 
     public static void main(String[] args) {
         Class c = null;
         try {
-            c = Class.forName("typeinfo.toys.FancyToy");
+            c = Class.forName("toys.FancyToy");
         } catch (ClassNotFoundException e) {
             System.out.println("Can't find FancyToy");
             System.exit(1);
@@ -53,6 +56,7 @@ public class ToyTest {
         printInfo(c);
         for (Class face : c.getInterfaces())
             printInfo(face);
+        System.out.println("================");
         Class up = c.getSuperclass();
         Object obj = null;
         try {
@@ -66,6 +70,9 @@ public class ToyTest {
             System.exit(1);
         }
         printInfo(obj.getClass());
+        System.out.println("-------------");
+        System.out.println("Boolean.TYPE = " + Boolean.TYPE);
+        System.out.println("boolean.class = " + boolean.class);
     }
 }
 /* Output:

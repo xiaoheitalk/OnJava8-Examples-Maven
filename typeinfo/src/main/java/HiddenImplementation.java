@@ -15,6 +15,7 @@ public class HiddenImplementation {
         A a = HiddenC.makeA();
         a.f();
         System.out.println(a.getClass().getName());
+        System.out.println("===========");
         // Compile error: cannot find symbol 'C':
     /* if(a instanceof C) {
       C c = (C)a;

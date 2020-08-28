@@ -13,6 +13,7 @@ class CountedInteger {
 
     @Override
     public String toString() {
+        System.out.println(counter + " " + id);
         return Long.toString(id);
     }
 }
@@ -36,7 +37,7 @@ public class DynamicSupplier<T> implements Supplier<T> {
     public static void main(String[] args) {
         Stream.generate(
                 new DynamicSupplier<>(CountedInteger.class))
-                .skip(10)
+                .skip(8)
                 .limit(5)
                 .forEach(System.out::println);
     }

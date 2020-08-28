@@ -49,8 +49,10 @@ class Position {
 
     public static void main(String[] args) {
         System.out.println(new Position("CEO"));
+        System.out.println("======");
         System.out.println(new Position("Programmer",
                 new Person("Arthur", "Fonzarelli")));
+        System.out.println("======");
         try {
             new Position(null);
         } catch (Exception e) {

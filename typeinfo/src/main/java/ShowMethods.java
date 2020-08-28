@@ -20,11 +20,13 @@ public class ShowMethods {
     private static Pattern p = Pattern.compile("\\w+\\.");
 
     public static void main(String[] args) {
-        if (args.length < 1) {
-            System.out.println(usage);
-            System.exit(0);
-        }
+//        if (args.length < 1) {
+//            System.out.println(usage);
+//            System.exit(0);
+//        }
         int lines = 0;
+        args = new String[1];
+        args[0] = "ShowMethods";
         try {
             Class<?> c = Class.forName(args[0]);
             Method[] methods = c.getMethods();
@@ -34,6 +36,7 @@ public class ShowMethods {
                     System.out.println(
                             p.matcher(
                                     method.toString()).replaceAll(""));
+                System.out.println("----------");
                 for (Constructor ctor : ctors)
                     System.out.println(
                             p.matcher(ctor.toString()).replaceAll(""));

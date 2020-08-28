@@ -40,6 +40,7 @@ public class FamilyVsExactType {
 
     public static void main(String[] args) {
         test(new Base());
+        System.out.println("===========");
         test(new Derived());
     }
 }

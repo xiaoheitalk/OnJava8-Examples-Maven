@@ -15,13 +15,16 @@ public interface Robot {
     List<Operation> operations();
 
     static void test(Robot r) {
+        System.out.println("------------------------");
         if (r instanceof Null)
             System.out.println("[Null Robot]");
         System.out.println("Robot name: " + r.name());
         System.out.println("Robot model: " + r.model());
+        System.out.println("========");
         for (Operation operation : r.operations()) {
             System.out.println(operation.description.get());
             operation.command.run();
+            System.out.println();
         }
     }
 }

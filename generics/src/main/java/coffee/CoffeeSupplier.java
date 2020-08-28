@@ -5,9 +5,12 @@
 // {java generics.coffee.CoffeeSupplier}
 package coffee;
 
+import java.util.Collections;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Random;
 import java.util.function.Supplier;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class CoffeeSupplier
@@ -64,9 +67,8 @@ public class CoffeeSupplier
     }
 
     public static void main(String[] args) {
-        Stream.generate(new CoffeeSupplier())
-                .limit(5)
-                .forEach(System.out::println);
+        Stream.generate(new CoffeeSupplier()).limit(6).forEach(System.out::println);
+        System.out.println("============");
         for (Coffee c : new CoffeeSupplier(5))
             System.out.println(c);
     }

@@ -7,7 +7,7 @@
 interface Payable<T> {
 }
 
-class Employee implements Payable<Employee> {
+class Employee2 implements Payable<Employee> {
 }
 
 class Hourly extends Employee

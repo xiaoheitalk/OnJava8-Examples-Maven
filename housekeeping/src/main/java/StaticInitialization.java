@@ -49,9 +49,12 @@ public class StaticInitialization {
     public static void main(String[] args) {
         System.out.println("main creating new Cupboard()");
         new Cupboard();
+        System.out.println("--------------------------");
         System.out.println("main creating new Cupboard()");
         new Cupboard();
+        System.out.println("--------------------------");
         table.f2(1);
+        System.out.println("--------------------------");
         cupboard.f3(1);
     }
 

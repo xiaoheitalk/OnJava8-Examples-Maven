@@ -10,5 +10,6 @@ public class GenericClassReferences {
         genericIntClass = Integer.class; // Same thing
         intClass = double.class;
         // genericIntClass = double.class; // Illegal
+        System.out.println(int.class);
     }
 }

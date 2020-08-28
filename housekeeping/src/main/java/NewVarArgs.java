@@ -18,7 +18,7 @@ public class NewVarArgs {
         printArray("one", "two", "three");
         printArray(new A(), new A(), new A());
         // Or an array:
-        printArray((Object[]) new Integer[]{1, 2, 3, 4});
+        printArray(new Integer[]{1, 2, 3, 4});
         printArray(); // Empty list is OK
     }
 }

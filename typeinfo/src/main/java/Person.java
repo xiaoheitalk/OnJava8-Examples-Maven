@@ -38,15 +38,18 @@ class Person {
     public String toString() {
         if (empty)
             return "<Empty>";
-        return (first.orElse("") +
-                " " + last.orElse("") +
-                " " + address.orElse("")).trim();
+        return (first.orElse("first null ") +
+                " " + last.orElse("last null ") +
+                " " + address.orElse("address null ")).trim();
     }
 
     public static void main(String[] args) {
         System.out.println(new Person());
+        System.out.println("++++++++++++++");
         System.out.println(new Person("Smith"));
+        System.out.println("++++++++++++++");
         System.out.println(new Person("Bob", "Smith"));
+        System.out.println("++++++++++++++");
         System.out.println(new Person("Bob", "Smith",
                 "11 Degree Lane, Frostbite Falls, MN"));
     }
