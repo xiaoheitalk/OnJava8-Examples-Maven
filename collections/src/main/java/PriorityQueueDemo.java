@@ -18,6 +18,7 @@ public class PriorityQueueDemo {
                 18, 14, 9, 3, 1, 1, 2, 3, 9, 14, 18, 21, 23, 25);
         priorityQueue = new PriorityQueue<>(ints);
         QueueDemo.printQ(priorityQueue);
+
         priorityQueue = new PriorityQueue<>(
                 ints.size(), Collections.reverseOrder());
         priorityQueue.addAll(ints);
@@ -29,6 +30,7 @@ public class PriorityQueueDemo {
         PriorityQueue<String> stringPQ =
                 new PriorityQueue<>(strings);
         QueueDemo.printQ(stringPQ);
+
         stringPQ = new PriorityQueue<>(
                 strings.size(), Collections.reverseOrder());
         stringPQ.addAll(strings);

@@ -44,8 +44,7 @@ public class CollectionMethodDifferences {
     }
 
     public static void main(String[] args) {
-        System.out.println("Collection: " +
-                methodSet(Collection.class));
+        System.out.println("Collection: " + methodSet(Collection.class));
         interfaces(Collection.class);
         difference(Set.class, Collection.class);
         difference(HashSet.class, Set.class);

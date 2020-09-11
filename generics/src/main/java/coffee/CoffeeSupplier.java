@@ -5,18 +5,14 @@
 // {java generics.coffee.CoffeeSupplier}
 package coffee;
 
-import java.util.Collections;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Random;
 import java.util.function.Supplier;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-public class CoffeeSupplier
-        implements Supplier<Coffee>, Iterable<Coffee> {
-    private Class<?>[] types = {Latte.class, Mocha.class,
-            Cappuccino.class, Americano.class, Breve.class,};
+public class CoffeeSupplier implements Supplier<Coffee>, Iterable<Coffee> {
+    private Class<?>[] types = {Latte.class, Mocha.class, Cappuccino.class, Americano.class, Breve.class,};
+
     private static Random rand = new Random(47);
 
     public CoffeeSupplier() {
@@ -32,8 +28,10 @@ public class CoffeeSupplier
     @Override
     public Coffee get() {
         try {
+            int nextInt = rand.nextInt(types.length);
+//            System.out.println("types.length = " + types.length + ", nextInt = " + nextInt);
             return (Coffee)
-                    types[rand.nextInt(types.length)].newInstance();
+                    types[nextInt].newInstance();
             // Report programmer errors at run time:
         } catch (InstantiationException |
                 IllegalAccessException e) {
@@ -67,7 +65,9 @@ public class CoffeeSupplier
     }
 
     public static void main(String[] args) {
-        Stream.generate(new CoffeeSupplier()).limit(6).forEach(System.out::println);
+        Stream.generate(new CoffeeSupplier()).limit(6).forEach(coffee -> {
+            System.out.println(coffee);
+        });
         System.out.println("============");
         for (Coffee c : new CoffeeSupplier(5))
             System.out.println(c);

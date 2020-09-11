@@ -8,8 +8,9 @@ interface Strategy {
 }
 
 class Soft implements Strategy {
+    @Override
     public String approach(String msg) {
-        return msg.toLowerCase() + "?";
+        return msg.toLowerCase() + " ? ";
     }
 }
 
@@ -38,9 +39,11 @@ public class Strategize {
 
     public static void main(String[] args) {
         Strategy[] strategies = {
-                new Strategy() { // [2]
+                new Strategy() {
+                    // [2]
+                    @Override
                     public String approach(String msg) {
-                        return msg.toUpperCase() + "!";
+                        return msg.toUpperCase() + " !";
                     }
                 },
                 msg -> msg.substring(0, 5), // [3]
@@ -48,8 +51,10 @@ public class Strategize {
         };
         Strategize s = new Strategize("Hello there");
         s.communicate();
+        System.out.println("----------");
+
         for (Strategy newStrategy : strategies) {
-            s.changeStrategy(newStrategy); // [5]
+            s.changeStrategy(newStrategy);// [5]
             s.communicate(); // [6]
         }
     }
