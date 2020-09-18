@@ -24,6 +24,7 @@ class OptionalMap {
                             .findFirst() // Produces an Optional
                             .map(func));
         }
+        System.out.println();
     }
 
     public static void main(String[] args) {

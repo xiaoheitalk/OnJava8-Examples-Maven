@@ -26,12 +26,12 @@ public class FileToWordsRegexp {
 
     public static void
     main(String[] args) throws Exception {
-        FileToWordsRegexp fw =
-                new FileToWordsRegexp("Cheese.dat");
+        FileToWordsRegexp fw = new FileToWordsRegexp("E:\\production\\github\\02-tutorial\\OnJava8-Examples-Maven\\streams\\src\\main\\java\\Cheese.dat");
         fw.stream()
                 .limit(7)
                 .map(w -> w + " ")
                 .forEach(System.out::print);
+        System.out.println();
         fw.stream()
                 .skip(7)
                 .limit(2)

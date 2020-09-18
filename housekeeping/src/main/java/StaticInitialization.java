@@ -20,6 +20,7 @@ class Table {
     Table() {
         System.out.println("Table()");
         bowl2.f1(1);
+        System.out.println();
     }
 
     void f2(int marker) {
@@ -36,6 +37,7 @@ class Cupboard {
     Cupboard() {
         System.out.println("Cupboard()");
         bowl4.f1(2);
+        System.out.println();
     }
 
     void f3(int marker) {
@@ -47,19 +49,21 @@ class Cupboard {
 
 public class StaticInitialization {
     public static void main(String[] args) {
-        System.out.println("main creating new Cupboard()");
+        System.out.println("main creating new Cupboard() 2");
+        new Cupboard();
+
+        System.out.println("main creating new Cupboard() 2");
         new Cupboard();
         System.out.println("--------------------------");
-        System.out.println("main creating new Cupboard()");
-        new Cupboard();
-        System.out.println("--------------------------");
-        table.f2(1);
-        System.out.println("--------------------------");
-        cupboard.f3(1);
+
+//        table.f2(1);
+//        System.out.println("--------------------------");
+//
+//        cupboard.f3(1);
     }
 
-    static Table table = new Table();
-    static Cupboard cupboard = new Cupboard();
+//    static Table table = new Table();
+//    static Cupboard cupboard = new Cupboard();
 }
 /* Output:
 Bowl(1)

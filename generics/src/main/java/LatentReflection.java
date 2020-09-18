@@ -4,6 +4,7 @@
 // Visit http://OnJava8.com for more book information.
 // Using reflection for latent typing
 
+import javax.xml.bind.SchemaOutputResolver;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
@@ -67,7 +68,9 @@ class CommunicateReflectively {
 public class LatentReflection {
     public static void main(String[] args) {
         CommunicateReflectively.perform(new SmartDog());
+        System.out.println();
         CommunicateReflectively.perform(new Robot());
+        System.out.println();
         CommunicateReflectively.perform(new Mime());
     }
 }

@@ -43,5 +43,10 @@
             <artifactId>logback-classic</artifactId>
             <version>1.1.7</version>
         </dependency>
+        <dependency>
+            <groupId>com.lls.framework</groupId>
+            <version>2.1.0-SNAPSHOT</version>
+            <artifactId>lls-enums</artifactId>
+        </dependency>
     </dependencies>
 </project>

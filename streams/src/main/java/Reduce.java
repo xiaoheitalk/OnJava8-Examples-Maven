@@ -20,6 +20,7 @@ class Frobnitz {
 
     // Generator:
     static Random rand = new Random(47);
+
     static final int BOUND = 100;
 
     static Frobnitz supply() {
@@ -29,11 +30,33 @@ class Frobnitz {
 
 public class Reduce {
     public static void main(String[] args) {
+//        Stream.generate(Frobnitz::supply)
+//                .limit(11)
+//                .forEach(System.out::println);
+        /**
+         * Frobnitz(58)
+         * Frobnitz(55)
+         * Frobnitz(93)
+         * Frobnitz(61)
+         * Frobnitz(61)
+         * Frobnitz(29)
+         * Frobnitz(68)
+         * Frobnitz(0)
+         * Frobnitz(22)
+         * Frobnitz(7)
+         * Frobnitz(88)
+         */
+
         Stream.generate(Frobnitz::supply)
                 .limit(10)
                 .peek(System.out::println)
-                .reduce((fr0, fr1) -> fr0.size < 50 ? fr0 : fr1)
-                .ifPresent(System.out::println);
+                .reduce((fr0, fr1) -> {
+                    Frobnitz frobnitz = fr0.size < 50 ? fr0 : fr1;
+                    System.out.println("---------------");
+                    return frobnitz;
+                })
+                .ifPresent(System.out::println)
+        ;
     }
 }
 /* Output:

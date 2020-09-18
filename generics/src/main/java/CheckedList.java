@@ -21,6 +21,7 @@ public class CheckedList {
     public static void main(String[] args) {
         List<Dog> dogs1 = new ArrayList<>();
         oldStyleMethod(dogs1); // Quietly accepts a Cat
+        System.out.println("---------");
         List<Dog> dogs2 = Collections.checkedList(
                 new ArrayList<>(), Dog.class);
         try {
@@ -28,6 +29,7 @@ public class CheckedList {
         } catch (Exception e) {
             System.out.println("Expected: " + e);
         }
+        System.out.println("---------");
         // Derived types work fine:
         List<Pet> pets = Collections.checkedList(
                 new ArrayList<>(), Pet.class);

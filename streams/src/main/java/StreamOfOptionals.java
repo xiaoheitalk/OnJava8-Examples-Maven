@@ -10,11 +10,20 @@ public class StreamOfOptionals {
         Signal.stream()
                 .limit(10)
                 .forEach(System.out::println);
-        System.out.println(" ---");
+        System.out.println("---------------");
         Signal.stream()
                 .limit(10)
                 .filter(Optional::isPresent)
                 .map(Optional::get)
+                .forEach(System.out::println);
+        System.out.println("---------------");
+        Signal.stream()
+                .limit(10)
+//                .filter(Optional::isPresent)
+                .map(signal -> {
+//                    System.out.println(signal.toString());
+                    return signal.orElse(new Signal("hello"));
+                })
                 .forEach(System.out::println);
     }
 }

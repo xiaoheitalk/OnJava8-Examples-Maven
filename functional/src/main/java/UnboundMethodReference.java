@@ -25,6 +25,10 @@ public class UnboundMethodReference {
         X x = new X();
         System.out.println(sp.transform(x)); // [2]
         System.out.println(x.f()); // Same effect
+
+        System.out.println();
+        MakeString ms = x::f;
+        System.out.println(ms.make());
     }
 }
 /* Output:

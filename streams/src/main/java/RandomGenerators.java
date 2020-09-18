@@ -23,6 +23,7 @@ public class RandomGenerators {
         show(rand.ints(10, 20).boxed());
         show(rand.longs(50, 100).boxed());
         show(rand.doubles(20, 30).boxed());
+        System.out.println("--------");
         // Control the stream size:
         show(rand.ints(2).boxed());
         show(rand.longs(2).boxed());

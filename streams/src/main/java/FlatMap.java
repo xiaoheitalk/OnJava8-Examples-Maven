@@ -9,7 +9,27 @@ public class FlatMap {
     public static void main(String[] args) {
         Stream.of(1, 2, 3)
                 .flatMap(
-                        i -> Stream.of("Gonzo", "Fozzie", "Beaker"))
+                        i -> Stream.of("Gonzo" + i, "Fozzie" + i, "Beaker" + i))
+                .forEach(System.out::println);
+
+        System.out.println("--------------------\n");
+        Stream.of(1, 2, 3)
+                .map(i -> Stream.of("Gonzo", "Kermit", "Beaker"))
+                .map(e -> e.getClass().getName())
+                .forEach(System.out::println);
+        System.out.println("----------------------\n");
+
+        Stream.of(1, 2, 3)
+                .map(i -> Stream.of("Gonzo"+i, "Kermit"+i, "Beaker"+i))
+                .forEach(stringStream -> {
+                    stringStream.forEach(System.out::println);
+                    System.out.println();
+                });
+        System.out.println("----------------------\n");
+
+        Stream.of(1, 2, 3)
+                .map(i -> "Gonzo"+i)
+//                .map(e -> e.getClass().getName())
                 .forEach(System.out::println);
     }
 }
@@ -19,7 +39,7 @@ Fozzie
 Beaker
 Gonzo
 Fozzie
-Beaker
+//Beaker
 Gonzo
 Fozzie
 Beaker

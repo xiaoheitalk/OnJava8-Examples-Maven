@@ -26,6 +26,7 @@ class OptionalFilter {
                             .findFirst()
                             .filter(pred));
         }
+        System.out.println();
     }
 
     public static void main(String[] args) {

@@ -37,11 +37,11 @@ public class Optionals {
         }
     }
 
-    static void test(String testName,
-                     Consumer<Optional<String>> cos) {
+    static void test(String testName, Consumer<Optional<String>> cos) {
         System.out.println(" === " + testName + " === ");
         cos.accept(Stream.of("Epithets").findFirst());
         cos.accept(Stream.<String>empty().findFirst());
+        System.out.println();
     }
 
     public static void main(String[] args) {

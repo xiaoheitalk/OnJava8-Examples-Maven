@@ -10,8 +10,7 @@ import java.util.stream.Stream;
 public class FileToWordsBuilder {
     Stream.Builder<String> builder = Stream.builder();
 
-    public FileToWordsBuilder(String filePath)
-            throws Exception {
+    public FileToWordsBuilder(String filePath) throws Exception {
         Files.lines(Paths.get(filePath))
                 .skip(1) // Skip the comment line at the beginning
                 .forEach(line -> {
@@ -26,7 +25,8 @@ public class FileToWordsBuilder {
 
     public static void
     main(String[] args) throws Exception {
-        new FileToWordsBuilder("Cheese.dat").stream()
+        new FileToWordsBuilder("E:\\production\\github\\02-tutorial\\OnJava8-Examples-Maven\\streams\\src\\main\\java\\Cheese.dat")
+                .stream()
                 .limit(7)
                 .map(w -> w + " ")
                 .forEach(System.out::print);

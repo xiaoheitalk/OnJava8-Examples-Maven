@@ -7,8 +7,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class GenericReading {
-    static List<Apple> apples =
-            Arrays.asList(new Apple());
+    static List<Apple> apples = Arrays.asList(new Apple());
     static List<Fruit> fruit = Arrays.asList(new Fruit());
 
     static <T> T readExact(List<T> list) {
@@ -33,7 +32,8 @@ public class GenericReading {
     static void f2() {
         Reader<Fruit> fruitReader = new Reader<>();
         Fruit f = fruitReader.readExact(fruit);
-        //- Fruit a = fruitReader.readExact(apples);
+//         Fruit a = fruitReader.readExact(apples);
+//        Apple apple = fruitReader.readExact(apples);
         // error: incompatible types: List<Apple>
         // cannot be converted to List<Fruit>
     }
@@ -45,8 +45,7 @@ public class GenericReading {
     }
 
     static void f3() {
-        CovariantReader<Fruit> fruitReader =
-                new CovariantReader<>();
+        CovariantReader<Fruit> fruitReader = new CovariantReader<>();
         Fruit f = fruitReader.readCovariant(fruit);
         Fruit a = fruitReader.readCovariant(apples);
     }

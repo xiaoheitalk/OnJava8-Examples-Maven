@@ -11,6 +11,7 @@ FuncSS extends Function<String, String> {
 
 public class ProduceFunction {
     static FuncSS produce() {
+        System.out.println("1111");
         return s -> s.toLowerCase(); // [2]
     }
 

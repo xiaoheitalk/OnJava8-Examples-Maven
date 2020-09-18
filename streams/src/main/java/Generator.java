@@ -18,9 +18,7 @@ public class Generator implements Supplier<String> {
     }
 
     public static void main(String[] args) {
-        String word = Stream.generate(new Generator())
-                .limit(30)
-                .collect(Collectors.joining());
+        String word = Stream.generate(new Generator()).limit(30).collect(Collectors.joining());
         System.out.println(word);
     }
 }

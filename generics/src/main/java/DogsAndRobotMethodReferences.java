@@ -35,8 +35,7 @@ class RobotA {
 }
 
 class CommunicateA {
-    public static <P> void perform(P performer,
-                                   Consumer<P> action1, Consumer<P> action2) {
+    public static <P> void perform(P performer, Consumer<P> action1, Consumer<P> action2) {
         action1.accept(performer);
         action2.accept(performer);
     }
@@ -44,13 +43,11 @@ class CommunicateA {
 
 public class DogsAndRobotMethodReferences {
     public static void main(String[] args) {
-        CommunicateA.perform(new PerformingDogA(),
-                PerformingDogA::speak, PerformingDogA::sit);
-        CommunicateA.perform(new RobotA(),
-                RobotA::speak, RobotA::sit);
-        CommunicateA.perform(new Mime(),
-                Mime::walkAgainstTheWind,
-                Mime::pushInvisibleWalls);
+        CommunicateA.perform(new PerformingDogA(), PerformingDogA::speak, PerformingDogA::sit);
+        System.out.println("---");
+        CommunicateA.perform(new RobotA(), RobotA::speak, RobotA::sit);
+        System.out.println("---");
+        CommunicateA.perform(new Mime(), Mime::walkAgainstTheWind, Mime::pushInvisibleWalls);
     }
 }
 /* Output:

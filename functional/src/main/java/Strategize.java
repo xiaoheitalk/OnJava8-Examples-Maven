@@ -5,6 +5,7 @@
 
 interface Strategy {
     String approach(String msg);
+//    String approach2(String msg);
 }
 
 class Soft implements Strategy {
@@ -12,6 +13,10 @@ class Soft implements Strategy {
     public String approach(String msg) {
         return msg.toLowerCase() + " ? ";
     }
+//    @Override
+//    public String approach2(String msg) {
+//        return msg.toLowerCase() + " ? ";
+//    }
 }
 
 class Unrelated {

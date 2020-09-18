@@ -20,9 +20,11 @@ public class Prime {
     }
 
     public static void main(String[] args) {
+        System.out.println("Math.sqrt(4) = " + Math.sqrt(3));
         new Prime().numbers()
                 .limit(10)
                 .forEach(n -> System.out.format("%d ", n));
+
         System.out.println();
         new Prime().numbers()
                 .skip(90)

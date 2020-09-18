@@ -22,14 +22,14 @@ class O {
 public class TransformFunction {
     static Function<I, O> transform(Function<I, O> in) {
         return in.andThen(o -> {
-            System.out.println(o);
+            System.out.println(o + " 22");
             return o;
         });
     }
 
     public static void main(String[] args) {
         Function<I, O> f2 = transform(i -> {
-            System.out.println(i);
+            System.out.println(i + " 11");
             return new O();
         });
         O o = f2.apply(new I());

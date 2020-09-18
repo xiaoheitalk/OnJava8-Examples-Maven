@@ -10,6 +10,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>interfaces</artifactId>
+    <dependencies>
+        <dependency>
+            <groupId>onjava8</groupId>
+            <artifactId>polymorphism</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 
 
 </project>

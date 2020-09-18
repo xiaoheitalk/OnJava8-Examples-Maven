@@ -5,7 +5,11 @@
 // {java interfaces.interfaceprocessor.FilterProcessor}
 package interfaceprocessor;
 
-import interfaces.filters.*;
+import filters.BandPass;
+import filters.Filter;
+import filters.HighPass;
+import filters.LowPass;
+import filters.Waveform;
 
 class FilterAdapter implements Processor {
     Filter filter;

@@ -18,8 +18,7 @@ public class RandomWords implements Supplier<String> {
     Random rand = new Random(47);
 
     RandomWords(String fname) throws IOException {
-        List<String> lines =
-                Files.readAllLines(Paths.get(fname));
+        List<String> lines = Files.readAllLines(Paths.get(fname));
         // Skip the first line:
         for (String line : lines.subList(1, lines.size())) {
             for (String word : line.split("[ .?,]+"))
@@ -40,7 +39,7 @@ public class RandomWords implements Supplier<String> {
     public static void
     main(String[] args) throws Exception {
         System.out.println(
-                Stream.generate(new RandomWords("Cheese.dat"))
+                Stream.generate(new RandomWords("E:\\production\\github\\02-tutorial\\OnJava8-Examples-Maven\\streams\\src\\main\\java\\Cheese.dat"))
                         .limit(10)
                         .collect(Collectors.joining(" ")));
     }

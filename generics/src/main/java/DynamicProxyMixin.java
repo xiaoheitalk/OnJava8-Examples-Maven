@@ -56,8 +56,8 @@ public class DynamicProxyMixin {
         Object mixin = MixinProxy.newInstance(
                 tuple(new BasicImp(), Basic.class),
                 tuple(new TimeStampedImp(), TimeStamped.class),
-                tuple(new SerialNumberedImp(),
-                        SerialNumbered.class));
+                tuple(new SerialNumberedImp(), SerialNumbered.class));
+
         Basic b = (Basic) mixin;
         TimeStamped t = (TimeStamped) mixin;
         SerialNumbered s = (SerialNumbered) mixin;

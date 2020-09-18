@@ -16,10 +16,12 @@ public class ApplyFunctional {
                 .peek(Shape::rotate)
                 .forEach(s -> s.resize(7));
 
+        System.out.println("----------");
         new FilledList<>(Shape::new, 2)
                 .forEach(Shape::rotate);
         new FilledList<>(Square::new, 2)
                 .forEach(Shape::rotate);
+        System.out.println("----------");
 
         SimpleQueue<Shape> shapeQ = Suppliers.fill(
                 new SimpleQueue<>(), SimpleQueue::add,

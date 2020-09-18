@@ -25,6 +25,7 @@ class OptionalFlatMap {
                             .findFirst()
                             .flatMap(func));
         }
+        System.out.println();
     }
 
     public static void main(String[] args) {

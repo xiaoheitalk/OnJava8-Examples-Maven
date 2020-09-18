@@ -23,6 +23,7 @@ class Cups {
         cup2 = new Cup(2);
     }
 
+
     Cups() {
         System.out.println("Cups()");
     }
@@ -33,8 +34,8 @@ public class ExplicitStatic {
         System.out.println("Inside main()");
         Cups.cup1.f(99);  // [1]
     }
-//     static Cups cups1 = new Cups();  // [2]
-//     static Cups cups2 = new Cups();  // [2]
+     static Cups cups1 = new Cups();  // [2]
+     static Cups cups2 = new Cups();  // [2]
 }
 /* Output:
 Inside main()

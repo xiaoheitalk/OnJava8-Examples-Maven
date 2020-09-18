@@ -7,8 +7,8 @@
 public class Wildcards {
     // Raw argument:
     static void rawArgs(Holder holder, Object arg) {
-        //- holder.set(arg);
-        // warning: [unchecked] unchecked call to set(T)
+        holder.set(arg);
+//         warning: [unchecked] unchecked call to set(T)
         // as a member of the raw type Holder
         //     holder.set(arg);
         //               ^
@@ -26,7 +26,7 @@ public class Wildcards {
     // Like rawArgs(), but errors instead of warnings:
     static void
     unboundedArg(Holder<?> holder, Object arg) {
-        //- holder.set(arg);
+//        holder.set(arg);
         // error: method set in class Holder<T>
         // cannot be applied to given types;
         //     holder.set(arg);
