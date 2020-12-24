@@ -25,8 +25,7 @@ public class AtUnit implements ProcessFiles.Strategy {
 
     public static void
     main(String[] args) throws Exception {
-        ClassLoader.getSystemClassLoader()
-                .setDefaultAssertionStatus(true); // Enable assert
+        ClassLoader.getSystemClassLoader().setDefaultAssertionStatus(true); // Enable assert
         new ProcessFiles(new AtUnit(), "class").start(args);
         if (failures == 0)
             System.out.println("OK (" + testsRun + " tests)");
@@ -43,8 +42,7 @@ public class AtUnit implements ProcessFiles.Strategy {
     @Override
     public void process(File cFile) {
         try {
-            String cName = ClassNameFinder.thisClass(
-                    Files.readAllBytes(cFile.toPath()));
+            String cName = ClassNameFinder.thisClass( Files.readAllBytes(cFile.toPath()));
             if (!cName.startsWith("public:"))
                 return;
             cName = cName.split(":")[1];

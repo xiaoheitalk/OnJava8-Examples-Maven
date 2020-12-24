@@ -7,7 +7,7 @@
 // classes allow you to encapsulate different
 // functionality for each type of event.
 
-import innerclasses.controller.*;
+import controller.*;
 
 public class GreenhouseControls extends Controller {
     private boolean light = false;
@@ -154,6 +154,7 @@ public class GreenhouseControls extends Controller {
                 e.start(); // Rerun each event
                 addEvent(e);
             }
+            System.out.println("============");
             start(); // Rerun this Event
             addEvent(this);
         }

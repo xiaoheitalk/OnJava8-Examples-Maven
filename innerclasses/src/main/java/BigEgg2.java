@@ -15,11 +15,13 @@ class Egg2 {
         }
     }
 
-    private Yolk y = new Yolk();
+
 
     Egg2() {
         System.out.println("New Egg2()");
     }
+
+    private Yolk y = new Yolk();
 
     public void insertYolk(Yolk yy) {
         y = yy;
@@ -43,11 +45,14 @@ public class BigEgg2 extends Egg2 {
     }
 
     public BigEgg2() {
+        System.out.println("---------");
         insertYolk(new Yolk());
+        System.out.println("---------");
     }
 
     public static void main(String[] args) {
         Egg2 e2 = new BigEgg2();
+        System.out.println("==========");
         e2.g();
     }
 }

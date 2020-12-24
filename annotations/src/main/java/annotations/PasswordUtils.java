@@ -6,8 +6,7 @@ package annotations;// annotations/PasswordUtils.java
 import java.util.List;
 
 public class PasswordUtils {
-    @UseCase(id = 47, description =
-            "Passwords must contain at least one numeric")
+    @UseCase(id = 47, description = "Passwords must contain at least one numeric")
     public boolean validatePassword(String passwd) {
         return (passwd.matches("\\w*\\d\\w*"));
     }
@@ -18,10 +17,8 @@ public class PasswordUtils {
                 .reverse().toString();
     }
 
-    @UseCase(id = 49, description =
-            "New passwords can't equal previously used ones")
-    public boolean checkForNewPassword(
-            List<String> prevPasswords, String passwd) {
+    @UseCase(id = 49, description = "New passwords can't equal previously used ones")
+    public boolean checkForNewPassword(List<String> prevPasswords, String passwd) {
         return !prevPasswords.contains(passwd);
     }
 }

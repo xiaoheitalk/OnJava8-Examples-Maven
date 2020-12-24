@@ -9,12 +9,11 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class UseCaseTracker {
-    public static void
-    trackUseCases(List<Integer> useCases, Class<?> cl) {
+    public static void trackUseCases(List<Integer> useCases, Class<?> cl) {
         for (Method m : cl.getDeclaredMethods()) {
             UseCase uc = m.getAnnotation(UseCase.class);
             if (uc != null) {
-                System.out.println("Found Use Case " +
+               System.out.println("Found Use Case " +
                         uc.id() + "\n  " + uc.description());
                 useCases.remove(Integer.valueOf(uc.id()));
             }
@@ -24,8 +23,7 @@ public class UseCaseTracker {
     }
 
     public static void main(String[] args) {
-        List<Integer> useCases = IntStream.range(47, 51)
-                .boxed().collect(Collectors.toList());
+        List<Integer> useCases = IntStream.range(47, 51).boxed().collect(Collectors.toList());
         trackUseCases(useCases, PasswordUtils.class);
     }
 }

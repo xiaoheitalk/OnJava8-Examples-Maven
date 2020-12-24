@@ -4,7 +4,7 @@
 // Visit http://OnJava8.com for more book information.
 // Configure and execute the greenhouse system
 
-import innerclasses.controller.*;
+import controller.*;
 
 public class GreenhouseController {
     public static void main(String[] args) {

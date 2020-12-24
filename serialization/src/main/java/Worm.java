@@ -4,7 +4,14 @@
 // Visit http://OnJava8.com for more book information.
 // Demonstrates object serialization
 
-import java.io.*;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.Random;
 
 class Data implements Serializable {
@@ -32,7 +39,7 @@ public class Worm implements Serializable {
 
     // Value of i == number of segments
     public Worm(int i, char x) {
-        System.out.println("Worm constructor: " + i);
+        System.out.println("Worm constructor: " + i + ", x =" + x);
         c = x;
         if (--i > 0)
             next = new Worm(i, (char) (x + 1));
@@ -44,50 +51,46 @@ public class Worm implements Serializable {
 
     @Override
     public String toString() {
-        StringBuilder result = new StringBuilder(":");
+        StringBuilder result = new StringBuilder();
         result.append(c);
         result.append("(");
         for (Data dat : d)
             result.append(dat);
         result.append(")");
         if (next != null)
-            result.append(next);
+            result.append(":").append(next);
         return result.toString();
     }
 
-    public static void
-    main(String[] args) throws ClassNotFoundException,
+    public static void main(String[] args) throws ClassNotFoundException,
             IOException {
         Worm w = new Worm(6, 'a');
         System.out.println("w = " + w);
+        System.out.println("----------");
         try (
-                ObjectOutputStream out = new ObjectOutputStream(
-                        new FileOutputStream("worm.dat"))
+                ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("worm.dat"))
         ) {
             out.writeObject("Worm storage\n");
             out.writeObject(w);
         }
         try (
-                ObjectInputStream in = new ObjectInputStream(
-                        new FileInputStream("worm.dat"))
+                ObjectInputStream in = new ObjectInputStream(new FileInputStream("worm.dat"))
         ) {
             String s = (String) in.readObject();
             Worm w2 = (Worm) in.readObject();
             System.out.println(s + "w2 = " + w2);
         }
+        System.out.println("=========");
+
         try (
-                ByteArrayOutputStream bout =
-                        new ByteArrayOutputStream();
-                ObjectOutputStream out2 =
-                        new ObjectOutputStream(bout)
+                ByteArrayOutputStream bout = new ByteArrayOutputStream();
+                ObjectOutputStream out2 = new ObjectOutputStream(bout)
         ) {
             out2.writeObject("Worm storage\n");
             out2.writeObject(w);
             out2.flush();
             try (
-                    ObjectInputStream in2 = new ObjectInputStream(
-                            new ByteArrayInputStream(
-                                    bout.toByteArray()))
+                    ObjectInputStream in2 = new ObjectInputStream(new ByteArrayInputStream(bout.toByteArray()))
             ) {
                 String s = (String) in2.readObject();
                 Worm w3 = (Worm) in2.readObject();
